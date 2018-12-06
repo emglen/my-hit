@@ -9,8 +9,8 @@ import java.util.concurrent.TimeUnit;
 
 public class MainPageTest {
     WebDriver driver;
-    MainPage mainPageObj;
-    SignInPopup signInPopup;
+    MainPage mainPageObj(driver);
+    SignInPopup signInPopup(driver);
 
     @Before
     public void setUp(){
