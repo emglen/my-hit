@@ -8,9 +8,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class MainPageTest {
-    WebDriver driver;
-    MainPage mainPageObj(driver);
-    SignInPopup signInPopup(driver);
+    private WebDriver driver;
+    private MainPage mainPageObj;
+    private SignInPopup signInPopup;
 
     @Before
     public void setUp(){
@@ -22,6 +22,8 @@ public class MainPageTest {
 
     @Test
     public void loginPopupIsOpened(){
+        mainPageObj=new MainPage(driver);
+        signInPopup=new SignInPopup(driver);
         mainPageObj.clickOnSignInButton();
         Assert.assertEquals(signInPopup.getText("//div/h3[@id='myModalLabel']"),"Вход или регистрация");
     }
