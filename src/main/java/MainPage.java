@@ -30,14 +30,14 @@ public class MainPage {
     public void selectMenuList(String textMenu, String textDropdownMenu){
         List<WebElement> menu=driver.findElements(menuList);
         for(WebElement element: menu){
-            if(element.getText()==textMenu){
+            if(element.getText().contains(textMenu)){
                 element.click();
                 break;
             }
         }
         List<WebElement> menuDropdown=driver.findElements(menuDropdownList);
         for(WebElement element: menu){
-            if(element.getText()==textDropdownMenu){
+            if(element.getText().contains(textDropdownMenu)){
                 element.click();
                 break;
             }
