@@ -32,12 +32,14 @@ public class MainPage {
         for(WebElement element: menu){
             if(element.getText()==textMenu){
                 element.click();
+                break;
             }
         }
         List<WebElement> menuDropdown=driver.findElements(menuDropdownList);
         for(WebElement element: menu){
             if(element.getText()==textDropdownMenu){
                 element.click();
+                break;
             }
         }
     }

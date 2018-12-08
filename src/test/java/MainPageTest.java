@@ -11,6 +11,7 @@ public class MainPageTest {
     private WebDriver driver;
     private MainPage mainPageObj;
     private SignInPopup signInPopupObj;
+    private FilmCatalogPage filmCatalogPageObj;
 
     @Before
     public void setUp(){
@@ -26,6 +27,14 @@ public class MainPageTest {
         signInPopupObj=new SignInPopup(driver);
         mainPageObj.clickOnSignInButton();
         Assert.assertEquals(signInPopupObj.getText("//div/h3[@id='myModalLabel']"),"Вход или регистрация");
+    }
+
+    @Test
+    public void openMenuPopularFilm(){
+        mainPageObj=new MainPage(driver);
+        filmCatalogPageObj=new FilmCatalogPage(driver);
+        mainPageObj.selectMenuList("Фильмы", "Популярные");
+        Assert.assertEquals(filmCatalogPageObj.getActiveCategoryText(),"Популярные");
     }
 
     @After
