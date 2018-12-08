@@ -36,7 +36,7 @@ public class MainPage {
             }
         }
         List<WebElement> menuDropdown=driver.findElements(menuDropdownList);
-        for(WebElement element: menu){
+        for(WebElement element: menuDropdown){
             if(element.getText().contains(textDropdownMenu)){
                 element.click();
                 break;
