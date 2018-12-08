@@ -1,5 +1,8 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class SearchResultPage {
     private WebDriver driver;
@@ -24,5 +27,8 @@ public class SearchResultPage {
     }
     public String getErrorWithoutSearchResultText(){
         return driver.findElement(errorWithoutSearchResult).getText();
+    }
+    public List<WebElement> getResultList(){
+        return driver.findElements(resultList);
     }
 }
