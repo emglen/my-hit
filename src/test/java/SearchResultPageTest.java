@@ -22,7 +22,7 @@ public class SearchResultPageTest {
     }
 
     @Test
-    public void searchWithotResult(){
+    public void searchWithoutResult(){
         searchResultPageObj=new SearchResultPage(driver);
         mainPageObj=new MainPage(driver);
 
