@@ -1,5 +1,8 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class MainPage {
     private WebDriver driver;
@@ -10,6 +13,11 @@ public class MainPage {
     private By searchButton=By.xpath("//div/a[@role='button']");
     private By searchInput=By.xpath("//input[@id='search-navbar-q']");
 
+    // Menu
+    private By menuList=By.xpath("//div/ul[@class='nav navbar-nav']");
+    private By menuDropdownList=By.xpath("//div/ul/li[@class='dropdown open']/ul[@class='dropdown-menu navbar-list-multi']");
+
+
     public void clickOnSignInButton(){
         driver.findElement(signInButton).click();
     }
@@ -18,5 +26,19 @@ public class MainPage {
     }
     public void typeTextIntoSearchTextbox(String text){
         driver.findElement(searchInput).sendKeys(text);
+    }
+    public void selectMenuList(String textMenu, String textDropdownMenu){
+        List<WebElement> menu=driver.findElements(menuList);
+        for(WebElement element: menu){
+            if(element.getText()==textMenu){
+                element.click();
+            }
+        }
+        List<WebElement> menuDropdown=driver.findElements(menuDropdownList);
+        for(WebElement element: menu){
+            if(element.getText()==textDropdownMenu){
+                element.click();
+            }
+        }
     }
 }
