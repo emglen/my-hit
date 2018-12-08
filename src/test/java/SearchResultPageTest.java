@@ -7,6 +7,10 @@ import java.util.concurrent.TimeUnit;
 
 public class SearchResultPageTest {
     private WebDriver driver;
+
+    private SearchResultPage searchResultPageObj;
+    private MainPage mainPageObj;
+
     @Before
     public void setUp(){
         System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");

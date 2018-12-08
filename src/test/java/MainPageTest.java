@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class MainPageTest {
     private WebDriver driver;
     private MainPage mainPageObj;
-    private SignInPopup signInPopup;
+    private SignInPopup signInPopupObj;
 
     @Before
     public void setUp(){
@@ -23,9 +23,9 @@ public class MainPageTest {
     @Test
     public void loginPopupIsOpened(){
         mainPageObj=new MainPage(driver);
-        signInPopup=new SignInPopup(driver);
+        signInPopupObj=new SignInPopup(driver);
         mainPageObj.clickOnSignInButton();
-        Assert.assertEquals(signInPopup.getText("//div/h3[@id='myModalLabel']"),"Вход или регистрация");
+        Assert.assertEquals(signInPopupObj.getText("//div/h3[@id='myModalLabel']"),"Вход или регистрация");
     }
 
     @After
