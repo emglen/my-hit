@@ -31,4 +31,7 @@ public class SearchResultPage {
     public List<WebElement> getResultList(){
         return driver.findElements(resultList);
     }
+    public boolean errorWithoutSearchResultIsVisible(){
+        return driver.findElement(errorWithoutSearchResult).isDisplayed();
+    }
 }

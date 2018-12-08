@@ -1,5 +1,7 @@
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -19,7 +21,16 @@ public class SearchResultPageTest {
         driver.get("https://my-hit.org");
     }
 
+    @Test
+    public void searchWithotResult(){
+        searchResultPageObj=new SearchResultPage(driver);
+        mainPageObj=new MainPage(driver);
 
+        mainPageObj.clickOnSearchButton();
+        searchResultPageObj.typeSearchTextbox("gfvbnm;lgjghhggj");
+        searchResultPageObj.clickSearchButton();
+        Assert.assertTrue(searchResultPageObj.errorWithoutSearchResultIsVisible());
+    }
 
     @After
     public void endAllTest(){
