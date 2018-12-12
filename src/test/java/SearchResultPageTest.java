@@ -46,6 +46,16 @@ public class SearchResultPageTest {
         }
     }
 
+    @Test
+    public void filmWithEnterTextListDisplayed(){
+        searchResultPageObj=new SearchResultPage(driver);
+        mainPageObj=new MainPage(driver);
+
+        mainPageObj.clickOnSearchButton();
+        searchResultPageObj.typeSearchTextbox("Скуби");
+        Assert.assertTrue(searchResultPageObj.filmWithEnterTextListIsVisible());
+    }
+
     @After
     public void endAllTest(){
         driver.quit();
