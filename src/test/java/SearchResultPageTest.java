@@ -56,6 +56,18 @@ public class SearchResultPageTest {
         Assert.assertTrue(searchResultPageObj.filmWithEnterTextListIsVisible());
     }
 
+    @Test
+    public void filmWithEnterTextListCanSearchText(){
+        searchResultPageObj=new SearchResultPage(driver);
+        mainPageObj=new MainPage(driver);
+
+        mainPageObj.clickOnSearchButton();
+        searchResultPageObj.typeSearchTextbox("Скуби");
+        for(WebElement element: searchResultPageObj.getFilmWithEnterTextList()){
+            Assert.assertTrue(element.getText().contains(searchResultPageObj.getSearchTextboxText()));
+        }
+    }
+
     @After
     public void endAllTest(){
         driver.quit();
