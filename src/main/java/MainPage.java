@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class MainPage {
     private WebDriver driver;
@@ -14,9 +15,8 @@ public class MainPage {
     private By searchInput=By.xpath("//input[@id='search-navbar-q']");
 
     // Menu
-    private By menuList=By.xpath("//div/ul[@class='nav navbar-nav']");
-    private By menuDropdownList=By.xpath("//div/ul/li[@class='dropdown open']/ul[@class='dropdown-menu navbar-list-multi']");
-
+    private By menuList=By.xpath("//div/ul[@class='nav navbar-nav']/li/a");
+    private By menuDropdownList=By.xpath("//div/ul/li[@class='dropdown open']/ul[@class='dropdown-menu navbar-list-multi']/li");
 
     public void clickOnSignInButton(){
         driver.findElement(signInButton).click();
@@ -42,5 +42,6 @@ public class MainPage {
                 break;
             }
         }
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 }
